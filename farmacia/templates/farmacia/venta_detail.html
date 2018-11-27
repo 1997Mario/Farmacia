@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block section %}
+    <h2>Venta</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div class="row well">
+            {% for p in object_list %}
+                <div class="col-md-4 well">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <a href="{% url 'venta-detail' p.pk %}">
+                                
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+    <td class="text-right">
+                                   
+        <a href="{% url 'medicamento-delete' object.id %}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a> 
+       
+    </td>  
+{% endblock maincontent %}

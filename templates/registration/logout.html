@@ -1,0 +1,14 @@
+
+{% load i18n %}
+<center>
+<h2><span>{% block title %}{% trans "Logged out" %}{% endblock %}</span></h2>
+
+{% block content %}
+    <p>{% trans "Successfully logged out" %}.</p>
+<br>
+    <a class="btn btn-outline-success" href="{% url 'auth_login' %}">volver</a>
+{% endblock %}
+</center>
+{% comment %}
+**{% url 'auth_password_reset' %}**
+{% endcomment %}

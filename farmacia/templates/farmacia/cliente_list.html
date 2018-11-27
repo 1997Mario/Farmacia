@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block section %}
+    <h2>Cliente</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div class="row well">
+        {% for p in object_list.all %}
+            <div class="col-md-4 well">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-striped table table-hover ">
+                              <tbody> 
+                                     <tr class="success">
+                                          <td><strong>Nombre:</strong></td>
+                                             <td>{{ p.nombre }} </td> 
+                                     </tr>
+                                     <tr class="success">
+                                           <td><strong>Apellido:</strong></td>
+                                                <td>{{ p.apellido }}</td>                              
+                                     </tr>
+                                     <tr class="success">
+                                           <td><strong>Direccion:</strong> </td>
+                                            <td>{{ p.direccion}}</td>                  
+                                     </tr>      
+                                     <tr class="success">
+                                            <td><strong>Telefono:</strong> </td>
+                                             <td>{{ p.telefono}}</td>                  
+                                </tr>                         
+                              </tbody>
+                                    <div class="panel-footer">
+                                        {% if p.comment %}
+                                            {{ p.comment }}
+                                        {% else %}
+                                           <a href="{% url "cliente-update" p.id %}">editar</a>
+                                        {% endif %}
+                                    </div>
+                            </table>                                 
+                    </div>
+                    
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+    <a href="http://127.0.0.1:8000/farmacia" class="btn-succes">Atras</a>
+
+{% endblock maincontent %}

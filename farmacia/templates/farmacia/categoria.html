@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block section %}
+    <h2>Categoria</h2>
+    <hr>
+{% endblock section %}
+
+{% block maincontent %}
+    <div class="row well">
+            {% for p in object_list %}
+                <div class="col-md-4 well">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <a href="{% url 'categoria-detail' p.pk %}">
+                                {{p.nombre}}
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+{% endblock maincontent %}
